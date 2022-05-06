@@ -1,0 +1,74 @@
+[
+    {
+        "name": "tv",
+        "supplierName": "walton",
+        "quantity": 112,
+        "id": 3,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "refrigarator",
+        "supplierName": "walton",
+        "quantity": 112,
+        "id": 4,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "laptop",
+        "supplierName": "walton",
+        "quantity": 112,
+        "id": 5,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "laptop",
+        "quantity": 112,
+        "supplierName": "walton",
+        "id": 44,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "laptop",
+        "quantity": 112,
+        "supplierName": "walton",
+        "id": 45,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "laptop",
+        "quantity": 112,
+        "supplierName": "walton",
+        "id": 46,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "laptop",
+        "quantity": 112,
+        "supplierName": "walton",
+        "id": 47,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    },
+    {
+        "name": "mobile",
+        "quantity": 112,
+        "supplierName": "walton",
+        "id": 48,
+        "details": "officia porro iure quia iusto qui ipsa ut modi",
+        "price": 400,
+        "url": "https://i.ibb.co/5YQsq6x/alex-lam-WOrd-Q6-Wgomw-unsplash.jpg"
+    }
+]
