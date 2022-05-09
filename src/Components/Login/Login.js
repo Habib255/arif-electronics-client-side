@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import SignInGoogle from '../SignInGoogle/SignInGoogle';
 
 const Login = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        signInError,
+    ] = useSignInWithEmailAndPassword(auth);
+
     const handleLogin = (event) => {
         event.preventDefault()
         const email = event.target.email.value
         const password = event.target.password.value
-        console.log(email, password)
+        signInWithEmailAndPassword(email, password)
+        email.value = ''
+        password.value = ''
+        if (user) {
+            toast('succesfully logged in')
+        }
+
+
+
     }
+    const resetPassword = () => {
+
+    }
+
 
 
     return (
@@ -29,7 +51,9 @@ const Login = () => {
                 <Button className='w-100 mb-4' variant="secondary" type="submit">
                     Submit
                 </Button>
-                <Link className='btn btn-secondary text-decoration-none text-white w-100' to="/register">Not Registered? Click here</Link>
+                <Link className='mt-3 mb-3 btn border-secondary text-decoration-none text-black w-100' to="/register">Not Registered? Click here</Link>
+                <p onClick={resetPassword} className='btn text-danger'>forgot password?</p>
+                <h4 className='text-danger'>{signInError?.message}</h4>
             </Form>
             <div>
                 <SignInGoogle></SignInGoogle>

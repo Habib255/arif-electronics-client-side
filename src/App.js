@@ -13,6 +13,9 @@ import Register from './Components/Register/Register';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Products from './Components/Products/Products';
+import NotFound from './Components/NotFound/NotFound';
+import AddProduct from './Components/AddProduct/AddProduct';
+import ProtectRoute from './Components/ProtectRoute/ProtectRoute';
 
 function App() {
   return (
@@ -25,7 +28,11 @@ function App() {
         <Route path='products' element={<Products></Products>}></Route>
         <Route path='Register' element={<Register></Register>}></Route>
         <Route path='about' element={<About></About>}></Route>
-        <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
+        <Route path='addProduct' element={
+          <ProtectRoute><AddProduct></AddProduct></ProtectRoute>
+        }></Route>
+        <Route path='manageproducts' element={<ProtectRoute><ManageProducts></ManageProducts></ProtectRoute>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

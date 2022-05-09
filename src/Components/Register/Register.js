@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import SignInGoogle from '../SignInGoogle/SignInGoogle';
 
@@ -17,9 +17,7 @@ const Register = () => {
         createUserLoading,
         createUserError,
     ] = useCreateUserWithEmailAndPassword(auth);
-    const [user, loading, userError] = useAuthState(auth);
-    console.log(userError)
-    console.log(user)
+    console.log(createUser)
     const getEmail = (event) => {
         setEmail(event.target.value)
 
@@ -38,13 +36,12 @@ const Register = () => {
             return
         }
         setError('')
-        if (createUser) {
-            toast('Successfully Registered')
-        }
+
+
 
         createUserWithEmailAndPassword(email, password)
 
-
+        toast('succesfully registered')
     }
 
 
@@ -74,8 +71,9 @@ const Register = () => {
                 </Button>
 
             </Form>
-            <h5 className='text-danger text- mb-3'>{error}</h5>
-            <Link className='btn btn-secondary text-decoration-none text-white w-100' to="/login">Already Registered? Login here</Link>
+            <h5 className='text-danger text- mb-3 mx-auto'>{error}</h5>
+            <h5 className='text-danger text- mb-3 mx-auto'>{createUserError?.message}</h5>
+            <Link className='btn border-secondary text-decoration-none text-black w-100' to="/login">Already Registered? Login here</Link>
 
             <div >
                 <SignInGoogle></SignInGoogle>

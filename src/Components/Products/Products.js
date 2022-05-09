@@ -2,12 +2,12 @@ import React from 'react';
 import UseProducts from '../../Hooks/UseProducts/UseProducts';
 import Product from '../Product/Product';
 const Products = () => {
-    const [products, setProducts] = UseProducts()
+    const [products] = UseProducts()
 
     return (
         <div className='d-flex flex-wrap mt-3 justify-content-between '>
 
-            {products.map(product => <Product key={product.id} product={product}></Product>)}
+            {products.map(product => <Product key={product._id} product={product}></Product>)}
         </div>
     );
 };

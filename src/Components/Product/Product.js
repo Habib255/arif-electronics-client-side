@@ -1,8 +1,14 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-    const { name, id, details, url, price } = product
+    const { _id, supplierName, name, details, url, price } = product
+    const nevigate = useNavigate()
+    const nevigateToManageItem = (id) => {
+        nevigate(`/service/${id}`)
+        console.log(nevigate)
+    }
     return (
         <div>
             <Card style={{ width: '30rem' }}>
@@ -12,8 +18,10 @@ const Product = ({ product }) => {
                     <Card.Text>
                         {details}
                     </Card.Text>
+
+                    <p>supplier: {supplierName}</p>
                     <h5>{price}</h5>
-                    <Button variant="primary">manage item</Button>
+                    <Button variant="primary" onClick={() => nevigateToManageItem(_id)}>manage item</Button>
                 </Card.Body>
             </Card>
         </div>
