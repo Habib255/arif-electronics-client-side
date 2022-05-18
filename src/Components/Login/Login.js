@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 import SignInGoogle from '../SignInGoogle/SignInGoogle';
 
 const Login = () => {
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+    const [userLogin] = useAuthState(auth)
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         signInError,
     ] = useSignInWithEmailAndPassword(auth);
-
+    const navigate = useNavigate()
+    if (user) {
+        toast('succesfully logged in')
+        navigate('/home')
+    }
+    if (loading) {
+        <Loading></Loading>
+    }
     const handleLogin = (event) => {
         event.preventDefault()
         const email = event.target.email.value
@@ -21,14 +31,14 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
         email.value = ''
         password.value = ''
-        if (user) {
-            toast('succesfully logged in')
-        }
-
 
 
     }
+
+
+
     const resetPassword = () => {
+        sendPasswordResetEmail("email")
 
     }
 

@@ -7,7 +7,7 @@ const AddProduct = () => {
             name: event.target.name.value,
             details: event.target.details.value,
             url: event.target.imageUrl.value,
-            supplier: event.target.supplier.value,
+            supplierName: event.target.supplierName.value,
             price: event.target.price.value
         }
         const url = `http://localhost:5000/product`
@@ -21,7 +21,7 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(result => console.log(result))
-
+        console.log(product)
 
     }
     return (
@@ -31,7 +31,7 @@ const AddProduct = () => {
                 <input type='text' name='name' placeholder='name'></input>
                 <textarea name="details" id="" cols="30" placeholder='details' rows="2"></textarea>
                 <input name='imageUrl' placeholder='Image URL'></input>
-                <input type='text' name='supplier' placeholder='supplier'></input>
+                <input type='text' name='supplierName' placeholder='supplier'></input>
                 <input type="number" name='price' placeholder='price'></input>
                 <input className='btn btn-primary w-50' type="submit" value="submit" />
             </form>

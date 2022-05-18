@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
 import UseProducts from '../../Hooks/UseProducts/UseProducts';
 import Product from '../Product/Product';
 

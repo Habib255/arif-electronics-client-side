@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 import SignInGoogle from '../SignInGoogle/SignInGoogle';
 
 const Register = () => {
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const Navigate = useNavigate()
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
     const [
@@ -17,7 +20,12 @@ const Register = () => {
         createUserLoading,
         createUserError,
     ] = useCreateUserWithEmailAndPassword(auth);
-    console.log(createUser)
+    if (createUser) {
+        Navigate('/home')
+    }
+    if (createUserLoading) {
+        <Loading></Loading>
+    }
     const getEmail = (event) => {
         setEmail(event.target.value)
 
@@ -35,13 +43,17 @@ const Register = () => {
             setError('Passwords not matched')
             return
         }
-        setError('')
+        sendEmailVerification()
 
 
 
         createUserWithEmailAndPassword(email, password)
 
         toast('succesfully registered')
+        setError('')
+        if (createUser) {
+            Navigate('/home')
+        }
     }
 
 

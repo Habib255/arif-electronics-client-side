@@ -1,22 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Header.css'
 
 const Header = () => {
+    const [user] = useAuthState(auth)
+    const handleSignOut = () => {
+        signOut(auth);
+    }
     return (
-        // <>
-        //     <Navbar bg="dark" variant="dark">
-        //         <Container>
-        //             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        //             <Nav className="me-auto">
-        //                 <Nav.Link href="#home">Home</Nav.Nav.Link>
-        //                 <Nav.Link href="#features">Features</Nav.Nav.Link>
-        //                 <Nav.Link href="#pricing">Pricing</Nav.Nav.Link>
-        //             </Nav>
-        //         </Container>
-        //     </Navbar>
-        // </>
         <div>
 
             <Navbar bg="dark" variant="dark">
@@ -27,7 +22,15 @@ const Header = () => {
                         <Nav.Link as={Link} to="/products">Products</Nav.Link>
                         <Nav.Link as={Link} to="/manageproducts">ManagePd</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
-                        <Nav.Link as={Link} to="/login">Login</Nav.Link>
+
+                        {
+                            user ?
+                                <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>sign out</button>
+                                :
+                                <Nav.Link as={Link} to="login">
+                                    Login
+                                </Nav.Link>}
+
                         <Nav.Link as={Link} to="/addProduct">Addproduct</Nav.Link>
 
                     </Nav></div>

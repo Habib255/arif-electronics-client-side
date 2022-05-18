@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const Product = ({ product }) => {
     const { _id, supplierName, name, details, url, price } = product
     const nevigate = useNavigate()
-    const nevigateToManageItem = (id) => {
-        nevigate(`/service/${id}`)
-        console.log(nevigate)
+    const nevigateToManageItem = id => {
+        nevigate(`/manageproducts/${id}`)
+
     }
     return (
         <div>
