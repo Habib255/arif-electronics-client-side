@@ -8,6 +8,7 @@ const AddProduct = () => {
             details: event.target.details.value,
             url: event.target.imageUrl.value,
             supplierName: event.target.supplierName.value,
+            quantity: event.target.quantity.value,
             price: event.target.price.value
         }
         const url = `http://localhost:5000/product`
@@ -33,6 +34,7 @@ const AddProduct = () => {
                 <input name='imageUrl' placeholder='Image URL'></input>
                 <input type='text' name='supplierName' placeholder='supplier'></input>
                 <input type="number" name='price' placeholder='price'></input>
+                <input type="number" name='quantity' placeholder='Quantity'></input>
                 <input className='btn btn-primary w-50' type="submit" value="submit" />
             </form>
         </div>

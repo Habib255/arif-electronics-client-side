@@ -19,10 +19,16 @@ const Header = () => {
                     <div> <Navbar.Brand as={Link} to="/">Arif Electronics</Navbar.Brand></div>
                     <div> <Nav className="me-auto text">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/products">Products</Nav.Link>
-                        <Nav.Link as={Link} to="/manageproducts">ManagePd</Nav.Link>
-                        <Nav.Link as={Link} to="/about">About</Nav.Link>
 
+                        {
+                            user && <>
+                                <Nav.Link as={Link} to="/products">Manage Products</Nav.Link>
+                                <Nav.Link as={Link} to="/myItems">My items</Nav.Link>
+
+                            </>
+                        }
+
+                        <Nav.Link as={Link} to="/addProduct">Addproduct</Nav.Link>
                         {
                             user ?
                                 <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>sign out</button>
@@ -31,7 +37,8 @@ const Header = () => {
                                     Login
                                 </Nav.Link>}
 
-                        <Nav.Link as={Link} to="/addProduct">Addproduct</Nav.Link>
+
+
 
                     </Nav></div>
                 </Container>
