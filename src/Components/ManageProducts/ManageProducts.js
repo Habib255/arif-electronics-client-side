@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ManageProducts = () => {
-    let [totalQuantity, setTotalQuantity] = useState("")
+
     const { productId } = useParams()
     const [product, setProduct] = useState({})
+
+
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`;
         fetch(url)
@@ -12,23 +14,54 @@ const ManageProducts = () => {
             .then(data => setProduct(data))
 
     }, [])
-    const handleDelivered = (event) => {
-        event.preventDefault()
+    const handleDelivered = () => {
+
+        const amount = product.quantity
+        const newAmount = parseInt(amount) - 1
+
+
+        const url = `http://localhost:5000/updateProduct/${productId}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify({ newAmount })
+        })
+            .then(res => res.json())
+            .then(result => console.log(result))
+
+
+
 
     }
 
     const addItemToStock = (event) => {
         event.preventDefault()
-        const quantity = event.target.quantity.value
+        const totalQuantity = product.quantity
+        const newQuantity = event.target.quantity.value
+        const newAmount = parseInt(totalQuantity) + parseInt(newQuantity)
 
-        const oldQuantity = product.quantity.value
-        setTotalQuantity = oldQuantity + quantity
+
+
+        console.log(newQuantity)
         console.log(totalQuantity)
+        const url = `http://localhost:5000/updateProduct/${productId}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
 
+            },
+            body: JSON.stringify({ newAmount })
+        })
+            .then(res => res.json())
+            .then(result => console.log(result))
 
     }
     return (
-        <div className='w-50 mx-auto'>
+        <div className='w-50 mx-auto shadow p-4 border'>
             <div className='mb-4'>
                 <img className='w-50' src={product.url} alt="" />
                 <h3>{product.name}</h3>
@@ -37,14 +70,14 @@ const ManageProducts = () => {
                 </p>
                 <p> price : $ {product.price}</p>
                 <p> quantity : {product.quantity} pcs</p>
-                <button onClick={handleDelivered}>delivered</button>
+                <button className='btn btn-secondary' onClick={handleDelivered}>Delivered</button>
             </div>
             <div>
-                <h3>add this item to stock</h3>
+                <h3>Reserve in stock</h3>
                 <form onSubmit={addItemToStock}>
 
-                    <input type="number" name="quantity" id="" />
-                    <input type="submit" value="add item" />
+                    <input type="number" name="quantity" id="" required />
+                    <input className='bg-secondary text-white' type="submit" value="add item" />
 
                 </form>
 

@@ -22,11 +22,11 @@ const Products = () => {
 
 
     return (
-        <div className='bg-light'>
-            <div className='container-fluid ms-2'>
+        <div>
+            <div className=''>
 
-                <div className='d-flex flex-wrap gap-5'>  {products.map(product => <div className='border g-col-4' key={product._id}><Product product={product}></Product>
-                    <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center '> delete this item</Button></div>
+                <div className='d-flex flex-wrap gap-5'>  {products.map(product => <div className='border shadow p-4' key={product._id}><Product product={product}></Product>
+                    <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center w-50 bg-secondary text-white '> Delete Item</Button></div>
                 )}</div>
 
                 <button className='d-flex flex-reverse'>

@@ -1,0 +1,31 @@
+.halfView {
+    width: 60%;
+    margin: auto;
+
+}
+
+.fullview {
+    width: 60%;
+}
+
+@media screen and (max-width: 992px) {
+    .halfView {
+        width: 100%;
+    }
+
+    .fullview {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .fullview {
+        width: 80%;
+    }
+
+    .halfView {
+        width: 100%;
+    }
+
+
+}

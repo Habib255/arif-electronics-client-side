@@ -10,7 +10,7 @@ const HomeProducts = () => {
     return (
         <div className='d-flex flex-wrap mt-3 justify-content-between '>
 
-            {products.slice(0, 6).map((product) => <Product key={product._id} product={product}></Product>)}
+            {products.slice(0, 6).map((product) => <div className='border d-grid shadow p-4 m-2' key={product._id}><Product product={product}></Product></div>)}
         </div>
     );
 };
