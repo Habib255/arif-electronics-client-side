@@ -53,8 +53,14 @@ const Login = () => {
                     <Button className='w-100 mb-2' variant="secondary" type="submit">
                         Submit
                     </Button>
-                    <Link to="/forgotpassword" className='btn text-primary mb-2'>forgot password?</Link>
-                    <Link className='mb-2 btn bg-secondary text-decoration-none text-white w-100' to="/register">Not Registered? Click here</Link>
+                    <div className='links'>
+                        <div className=''>  <Link to="/forgotpassword" className='text-decoration-none text-primary'>forgot password?</Link></div>
+
+                        <div className=''><Link className='text-decoration-none text-primary' to="/register">Not Registered?</Link></div>
+                    </div>
+
+
+
 
                     <h6 className='text-danger'>{signInError?.message}</h6>
                 </Form>

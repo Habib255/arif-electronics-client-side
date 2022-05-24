@@ -5,7 +5,7 @@ const ManageProducts = () => {
 
     const { productId } = useParams()
     const [product, setProduct] = useState({})
-
+    console.log(product)
 
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`;
@@ -13,13 +13,14 @@ const ManageProducts = () => {
             .then(res => res.json())
             .then(data => setProduct(data))
 
-    }, [])
+    }, [product])
+
+    console.log(product)
     const handleDelivered = () => {
 
         const amount = product.quantity
         const newAmount = parseInt(amount) - 1
-
-
+        product.quantity = newAmount
         const url = `http://localhost:5000/updateProduct/${productId}`
         fetch(url, {
             method: "PUT",
@@ -30,23 +31,14 @@ const ManageProducts = () => {
             body: JSON.stringify({ newAmount })
         })
             .then(res => res.json())
-            .then(result => console.log(result))
-
-
-
-
+            .then(result => { setProduct(product) })
     }
 
     const addItemToStock = (event) => {
         event.preventDefault()
-        const totalQuantity = product.quantity
+        const oldQuantity = product.quantity
         const newQuantity = event.target.quantity.value
-        const newAmount = parseInt(totalQuantity) + parseInt(newQuantity)
-
-
-
-        console.log(newQuantity)
-        console.log(totalQuantity)
+        const newAmount = parseInt(oldQuantity) + parseInt(newQuantity)
         const url = `http://localhost:5000/updateProduct/${productId}`
         fetch(url, {
             method: "PUT",
@@ -61,26 +53,28 @@ const ManageProducts = () => {
 
     }
     return (
-        <div className='w-50 mx-auto shadow p-4 border'>
-            <div className='mb-4'>
-                <img className='w-50' src={product.url} alt="" />
-                <h3>{product.name}</h3>
-                <p>
-                    details : {product.details}
-                </p>
-                <p> price : $ {product.price}</p>
-                <p> quantity : {product.quantity} pcs</p>
-                <button className='btn btn-secondary' onClick={handleDelivered}>Delivered</button>
-            </div>
+        <div className='fullview mx-auto shadow p-4 border'>
             <div>
-                <h3>Reserve in stock</h3>
-                <form onSubmit={addItemToStock}>
+                <div className='halfView mb-4'>
+                    <img className='w-50' src={product.url} alt="" />
+                    <h3>{product.name}</h3>
+                    <p>
+                        details : {product.details}
+                    </p>
+                    <p> price : $ {product.price}</p>
+                    <p> quantity : {product.quantity} pcs</p>
+                    <button className='btn btn-secondary' onClick={handleDelivered}>Delivered</button>
+                </div>
+                <div>
+                    <h3>Reserve in stock</h3>
+                    <form onSubmit={addItemToStock}>
 
-                    <input type="number" name="quantity" id="" required />
-                    <input className='bg-secondary text-white' type="submit" value="add item" />
+                        <input type="number" name="quantity" id="" required />
+                        <input className='bg-secondary text-white' type="submit" value="add item" />
 
-                </form>
+                    </form>
 
+                </div>
             </div>
         </div>
     );

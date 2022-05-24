@@ -81,8 +81,8 @@ const Register = () => {
 
                 </Form>
                 <h6 className='text-danger text- mb-2 mx-auto'>{error}</h6>
-                <h6 className='text-danger text- mb-2 mx-auto'>{createUserError?.message}</h6>
-                <Link className='btn bg-secondary text-decoration-none text-white w-100' to="/login">Already Registered? Login here</Link>
+                <h6 className='text-danger text- mb-3 mx-auto'>{createUserError?.message}</h6>
+                <Link className='text-decoration-none text-primary' to="/login">Already Registered? Login here</Link>
 
                 <div >
                     <SignInGoogle></SignInGoogle>

@@ -8,7 +8,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://i.ibb.co/BN4Bh4k/banner.jpg"
+                        src="https://i.ibb.co/wJR0KcG/banner.jpg"
                         alt="First slide"
                     />
 
