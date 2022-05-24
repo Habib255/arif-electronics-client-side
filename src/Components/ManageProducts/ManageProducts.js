@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ManageProducts = () => {
 
@@ -32,6 +33,7 @@ const ManageProducts = () => {
         })
             .then(res => res.json())
             .then(result => { setProduct(product) })
+        toast('Item delevered')
     }
 
     const addItemToStock = (event) => {
@@ -50,6 +52,8 @@ const ManageProducts = () => {
         })
             .then(res => res.json())
             .then(result => console.log(result))
+        toast('Item added to stock')
+        event.target.quantity.value = ('')
 
     }
     return (

@@ -1,3 +1,4 @@
+import { sendEmailVerification } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
@@ -19,6 +20,7 @@ const Register = () => {
         createUserLoading,
         createUserError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
     if (createUser) {
         Navigate('/home')
     }
