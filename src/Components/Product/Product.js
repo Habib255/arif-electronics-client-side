@@ -23,7 +23,7 @@ const Product = ({ product }) => {
                     <p><strong>Quantity</strong>: {quantity} pcs</p>
                     <p><strong>Supplier:</strong> {supplierName}</p>
                     <p><strong>Price:</strong> <strong>$ {price}</strong></p>
-                    <Button className='d-flex-center w-50 bg-secondary text-white ' variant="primary" onClick={() => nevigateToManageItem(_id)}>manage item</Button>
+                    <Button className='w-50 bg-secondary text-white ' variant="primary" onClick={() => nevigateToManageItem(_id)}>manage item</Button>
 
 
                 </Card.Body>

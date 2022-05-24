@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form, } from 'react-bootstrap';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
@@ -9,8 +9,6 @@ import SignInGoogle from '../SignInGoogle/SignInGoogle';
 import './Login.css'
 
 const Login = () => {
-    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const [userLogin] = useAuthState(auth)
     const [
         signInWithEmailAndPassword,
         user,
@@ -18,11 +16,14 @@ const Login = () => {
         signInError,
     ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
 
     if (user) {
         toast('logged in')
-        navigate('/home')
-
+        if (user) {
+            navigate(from, { replace: true });
+        }
     }
     if (loading) {
         <Loading></Loading>
@@ -34,15 +35,6 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
 
     }
-
-
-
-    const resetPassword = async (event) => {
-        const email = event.target.email.value
-        await sendPasswordResetEmail(email)
-
-    }
-
     return (
         <div className='fullview mx-auto'>
             <div className='halfView border p-4 shadow'>
@@ -61,7 +53,7 @@ const Login = () => {
                     <Button className='w-100 mb-2' variant="secondary" type="submit">
                         Submit
                     </Button>
-                    <p onClick={resetPassword} className='btn text-danger'>forgot password?</p>
+                    <Link to="/forgotpassword" className='btn text-primary mb-2'>forgot password?</Link>
                     <Link className='mb-2 btn bg-secondary text-decoration-none text-white w-100' to="/register">Not Registered? Click here</Link>
 
                     <h6 className='text-danger'>{signInError?.message}</h6>

@@ -2,7 +2,6 @@
 import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import About from './Components/About/About';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
@@ -15,6 +14,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ManageProducts from './Components/ManageProducts/ManageProducts';
 import AddProduct from './Components/AddProduct/AddProduct';
 import MyItems from './Components/MyItems/MyItems';
+import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='home' element={<Home></Home>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
+        <Route path='forgotpassword' element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path='products' element={<Products></Products>}></Route>
         <Route path='Register' element={<Register></Register>}></Route>
         <Route path='/manageproducts/:productId' element={<PrivateRoute><ManageProducts></ManageProducts></PrivateRoute>} />
@@ -32,7 +33,7 @@ function App() {
         <Route path='myitems' element={<PrivateRoute><MyItems></MyItems></PrivateRoute>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
-      <ToastContainer></ToastContainer>
+      <ToastContainer />
       <Footer></Footer>
 
 

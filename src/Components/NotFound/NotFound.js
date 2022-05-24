@@ -4,7 +4,7 @@ import image from "../../404.jpg"
 const NotFound = () => {
     return (
         <div className='bg-dark'>
-            <img src={image} alt="" />
+            <img className='w-100' src={image} alt="" />
         </div>
     );
 };

@@ -39,7 +39,7 @@ const MyItems = () => {
             <h2> here is for showing my items</h2>
             <h3>your items {userItems.length}</h3>
             <div className='d-flex flex-wrap gap-5'>  {userItems.map(product => <div className='border g-col-4' key={product._id}><Product product={product}></Product>
-                <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center '> delete this item</Button></div>)}</div>
+                <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center btn btn-secondary'> delete this item</Button></div>)}</div>
 
         </div>
     );
