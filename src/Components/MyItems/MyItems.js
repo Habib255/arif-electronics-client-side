@@ -20,17 +20,19 @@ const MyItems = () => {
     }, [])
 
     const handleDeleteItem = id => {
-        fetch(`http://localhost:5000/product/${id}`, {
-            method: 'DELETE'
+        const agreeDelete = window.confirm('Please confirm first to delete this item')
+        if (agreeDelete) {
+            fetch(`http://localhost:5000/product/${id}`, {
+                method: 'DELETE'
 
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                const remaining = userItems.filter(filterProduct => filterProduct._id !== id)
-                setUserItems(remaining);
             })
-
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = userItems.filter(filterProduct => filterProduct._id !== id)
+                    setUserItems(remaining);
+                })
+        }
 
     }
 
@@ -39,7 +41,7 @@ const MyItems = () => {
             <h2> here is for showing my items</h2>
             <h3>your items {userItems.length}</h3>
             <div className='d-flex flex-wrap gap-5'>  {userItems.map(product => <div className='border g-col-4' key={product._id}><Product product={product}></Product>
-                <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center btn btn-secondary'> delete this item</Button></div>)}</div>
+                <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center deleteBtnWidth btn btn-secondary'> delete this item</Button></div>)}</div>
 
         </div>
     );
