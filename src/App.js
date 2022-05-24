@@ -15,6 +15,7 @@ import ManageProducts from './Components/ManageProducts/ManageProducts';
 import AddProduct from './Components/AddProduct/AddProduct';
 import MyItems from './Components/MyItems/MyItems';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
+import Blogs from './Components/Blogs/Blogs';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='home' element={<Home></Home>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path='forgotpassword' element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path='products' element={<Products></Products>}></Route>
         <Route path='Register' element={<Register></Register>}></Route>
