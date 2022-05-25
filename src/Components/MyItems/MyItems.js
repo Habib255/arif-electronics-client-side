@@ -12,7 +12,7 @@ const MyItems = () => {
     useEffect(() => {
         const getUserItem = async () => {
             const email = user.email
-            const url = `http://localhost:5000/user?email=${email}`;
+            const url = `https://whispering-tundra-74547.herokuapp.com/user?email=${email}`;
             const { data } = await axios.get(url)
             setUserItems(data)
         }
@@ -23,7 +23,7 @@ const MyItems = () => {
     const handleDeleteItem = id => {
         const agreeDelete = window.confirm('Please confirm first to delete this item')
         if (agreeDelete) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://whispering-tundra-74547.herokuapp.com/product/${id}`, {
                 method: 'DELETE'
 
             })

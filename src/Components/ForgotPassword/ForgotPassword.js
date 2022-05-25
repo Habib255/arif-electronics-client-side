@@ -1,8 +1,7 @@
-import { Toast } from 'bootstrap';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useAuthState, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 

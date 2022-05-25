@@ -10,7 +10,7 @@ const Products = () => {
         const agreeDelete = window.confirm('Please confirm first to delete this item')
         if (agreeDelete) {
 
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://whispering-tundra-74547.herokuapp.com/product/${id}`, {
                 method: 'DELETE'
 
             })

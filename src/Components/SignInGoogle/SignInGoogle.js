@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import image from "../../icons8-google-16.png"
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 
 

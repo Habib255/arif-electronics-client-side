@@ -9,7 +9,7 @@ const ManageProducts = () => {
     console.log(product)
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://whispering-tundra-74547.herokuapp.com/product/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -22,7 +22,7 @@ const ManageProducts = () => {
         const amount = product.quantity
         const newAmount = parseInt(amount) - 1
         product.quantity = newAmount
-        const url = `http://localhost:5000/updateProduct/${productId}`
+        const url = `https://whispering-tundra-74547.herokuapp.com/updateProduct/${productId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -41,7 +41,7 @@ const ManageProducts = () => {
         const oldQuantity = product.quantity
         const newQuantity = event.target.quantity.value
         const newAmount = parseInt(oldQuantity) + parseInt(newQuantity)
-        const url = `http://localhost:5000/updateProduct/${productId}`
+        const url = `https://whispering-tundra-74547.herokuapp.com/updateProduct/${productId}`
         fetch(url, {
             method: "PUT",
             headers: {

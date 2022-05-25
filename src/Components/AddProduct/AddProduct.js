@@ -16,7 +16,7 @@ const AddProduct = () => {
             quantity: event.target.quantity.value,
             price: event.target.price.value
         }
-        const url = `http://localhost:5000/product`
+        const url = `https://whispering-tundra-74547.herokuapp.com/product`
         fetch(url, {
             method: "POST",
             headers: {
