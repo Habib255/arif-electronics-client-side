@@ -31,7 +31,7 @@ const Products = () => {
         <div>
             <div className=''>
 
-                <div className='d-flex flex-wrap gap-5'>  {products.map(product => <div className='border shadow p-4' key={product._id}><Product product={product}></Product>
+                <div className='d-flex flex-wrap gap-5 justify-content-evenly'>  {products.map(product => <div className='border shadow p-4' key={product._id}><Product product={product}></Product>
                     <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center deleteBtnWidth bg-secondary text-white '> Delete Item</Button></div>
                 )}</div>
 
