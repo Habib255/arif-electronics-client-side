@@ -9,7 +9,6 @@ const Home = () => {
         <div>
 
             <Banner></Banner>
-            <h4 className='mt-3'>some of our products</h4>
             <HomeProducts></HomeProducts>
             <Info></Info>
             <Contact></Contact>

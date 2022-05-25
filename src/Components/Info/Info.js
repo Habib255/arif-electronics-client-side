@@ -1,24 +1,26 @@
 import React from 'react';
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Info = () => {
     return (
-        <div className='bg-secondary bg-gradient pt-3 pb-3'>
+        <div className='bg-secondary bg-gradient pt-4 pb-4 mt-4'>
             <h2>Stay connected & stay updated</h2>
 
-            <div className='text-start text-light d-flex flex-wrap justify-content-center gap-4'>
+            <div className='text-start text-light d-flex flex-wrap justify-content-evenly pt-3'>
                 <div>
-                    <ul>
-                        <li>Know which product recently realesed</li>
-                        <li>Know about the upcoming product</li>
-                        <li> Get updated about the Price</li>
-                    </ul>
+
+                    <p className='pt-3'><span className='pe-3'><FaArrowAltCircleRight /></span> Know which product recently realesed </p>
+                    <p className='pt-3'><span className='pe-3'><FaArrowAltCircleRight /></span> Know about the upcoming product </p>
+                    <p className='pt-3'><span className='pe-3'><FaArrowAltCircleRight /></span> Get updated about the Price </p>
+
+
                 </div>
                 <div>
-                    <ul>
-                        <li>Know the details/specification of product</li>
-                        <li>Get idea about the product quality</li>
-                        <li>Don't hesitate to visit our store</li>
-                    </ul>
+
+                    <p className='pt-3'><span className='pe-3'><FaArrowAltCircleRight /></span> Know the details/specification of product </p>
+                    <p className='pt-3'><span className='pe-3'><FaArrowAltCircleRight /></span>Get idea about the product quality </p>
+                    <p className='pt-3'><span className='pe-3'><FaArrowAltCircleRight /></span>Get update about the stock every moment </p>
+
                 </div>
             </div>
         </div>

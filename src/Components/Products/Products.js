@@ -29,16 +29,18 @@ const Products = () => {
 
     return (
         <div>
-            <div className=''>
+            <div>
 
                 <div className='d-flex flex-wrap gap-5 justify-content-evenly'>  {products.map(product => <div className='border shadow p-4' key={product._id}><Product product={product}></Product>
                     <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center deleteBtnWidth bg-secondary text-white '> Delete Item</Button></div>
                 )}</div>
 
-                <button className='d-flex flex-reverse'>
-                    <div className='d-flex flex-end'>  <Link as={Link} to='/addProduct'> add more product</Link></div>
+                <div className='d-flex flex-row-reverse mt-5 me-5 container'>
+                    <button className=' btn btn-secondary'>
+                        <Link className='text-white text-decoration-none' as={Link} to='/addProduct'> add more product</Link>
 
-                </button>
+                    </button>
+                </div>
             </div>
         </div>
     );
