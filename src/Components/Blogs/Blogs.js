@@ -53,7 +53,7 @@ const Blogs = () => {
             <div className='text-start p-3 m-4 border bg-light shadow'>
                 <h4>Question:What is the purpose of jwt and how does it work? </h4>
                 <p><strong>Answer: </strong></p>
-                <strong>JWT:-</strong>
+                <strong>JWT and how it works-</strong>
                 <ul>
                     <li>
                         the full meaning of jwt is json web token. It is an open standard used

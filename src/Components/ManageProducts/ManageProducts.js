@@ -63,10 +63,10 @@ const ManageProducts = () => {
                     <img className='w-50' src={product.url} alt="" />
                     <h3>{product.name}</h3>
                     <p>
-                        details : {product.details}
+                        <strong>details :</strong> {product.details}
                     </p>
-                    <p> price : $ {product.price}</p>
-                    <p> quantity : {product.quantity} pcs</p>
+                    <p> <strong>price : $</strong> {product.price}</p>
+                    <p> <strong>quantity :</strong> {product.quantity} pcs</p>
                     <button className='btn btn-secondary' onClick={handleDelivered}>Delivered</button>
                 </div>
                 <div>

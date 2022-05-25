@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Product from '../Product/Product';
 
@@ -37,12 +38,17 @@ const MyItems = () => {
     }
 
     return (
-        <div className=''>
-            <h2> here is for showing my items</h2>
-            <h3>your items {userItems.length}</h3>
-            <div className='d-flex flex-wrap gap-5'>  {userItems.map(product => <div className='border g-col-4' key={product._id}><Product product={product}></Product>
-                <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center deleteBtnWidth btn btn-secondary'> delete this item</Button></div>)}</div>
+        <div className='container mt-2 '>
 
+            <h3 className='pb-2'>You've Added  {userItems.length} Item</h3>
+            <div className='d-flex flex-wrap gap-3 justify-content-evenly'>  {userItems.map(product => <div className='border pb-4' key={product._id}><Product product={product}></Product>
+                <Button onClick={() => handleDeleteItem(product._id)} className='d-flex-center deleteBtnWidth btn btn-secondary'> delete this item</Button></div>)}</div>
+            <div className='d-flex flex-row-reverse mt-3 me-5 container'>
+                <button className=' btn btn-secondary'>
+                    <Link className='text-white text-decoration-none' as={Link} to='/addProduct'> add more product</Link>
+
+                </button>
+            </div>
         </div>
     );
 };

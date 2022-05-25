@@ -13,7 +13,7 @@ const Product = ({ product }) => {
 
     return (
         <div>
-            <Card className='border-0' style={{ width: '25rem' }}>
+            <Card className='border-0 cart' style={{ width: '25rem' }}>
                 <Card.Img variant="top" src={url} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
